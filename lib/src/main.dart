@@ -70,35 +70,73 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text("widget.title"),
-      ),
+      // appBar: AppBar(
+      //   // Here we take the value from the MyHomePage object that was created by
+      //   // the App.build method, and use it to set our appbar title.
+      //   title: Text("widget.title"),
+      // ),
       drawer: Drawer(
         child: Column(
             children: <Widget>[
               Expanded(
                   child: ListView(
-                    children: const <Widget> [
+                    children: <Widget> [
                       DrawerHeader(
                         decoration: BoxDecoration(
-                          color: Colors.blue,
-                        ),
-                        child: Text(
-                          'TODO. put user',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 24,
+                          color: Colors.white,
+                          // or
+                        image: DecorationImage(
+                          image: NetworkImage(
+                            "https://www.esjzone.cc/assets/img/user-cover-img.jpg",
                           ),
-                        ),
+                          fit: BoxFit.fill,
+                        ),),
+                        child: Stack(
+                          children: <Widget> [
+                            Positioned(
+                                child: CircleAvatar(
+                                  backgroundImage: NetworkImage(
+                                    "https://www.esjzone.cc/assets/img/nophoto.png?t=1674832305",
+                                  ),
+                                  radius: 54,
+                                ), // TODO. for login's pic
+                                left: 6.0,
+                                top: 10.0,
+                            ),
+                            Positioned(
+                              child: Text("TODO: User",
+                                style: TextStyle(color: Colors.black, fontSize: 20),
+                              ),
+                              bottom: 54.0,
+                              left: 136.0,
+                            ),
+                            Positioned(
+                                child: Text("TODO: 日期",
+                                  style: TextStyle(color: Colors.grey, fontSize: 13)
+                              ),
+                              bottom: 28.0,
+                              left: 136.0,
+                            ),
+                            Positioned(
+                              child: Text("TODO: LEVEL",
+                                  style: TextStyle(color: Colors.grey, fontSize: 13)
+                              ),
+                              bottom: 8.0,
+                              left: 136.0,
+                            ),
+                          ],
+                        )
                       ),
                       ListTile(
-                        leading: Icon(Icons.message),
+                        leading: Icon(Icons.home),
+                        title: Text('Home'),
+                      ),
+                      ListTile(
+                        leading: Icon(Icons.favorite_border),
                         title: Text('我的收藏'),
                       ),
                       ListTile(
-                        leading: Icon(Icons.account_circle),
+                        leading: Icon(Icons.remove_red_eye_outlined),
                         title: Text('觀看記錄'),
                       ),
                     ],
